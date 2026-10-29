@@ -1,0 +1,4 @@
+"use client";
+import { useState } from "react";
+import { journeys } from "@/lib/site";
+export function JourneyGallery(){const [filter,setFilter]=useState("All inspiration");return <><div className="filter-row" aria-label="Filter journey inspiration">{["All inspiration","Airport","Business","Occasions","Memorial","Chauffeurs"].map(f=><button key={f} type="button" onClick={()=>setFilter(f)} aria-pressed={filter===f}>{f}</button>)}</div><div className="journey-grid">{journeys.filter(j=>filter==="All inspiration"||filter===j.category).map(j=><article key={j.image}><img src={`/images/${j.image}`} alt={j.alt} width="1400" height="1050" loading="lazy"/><h2>{j.title}</h2><p>{j.text}</p></article>)}</div><p className="fine-print">Exact models, vehicle quantities and arrival arrangements are tailored to your event date and confirmed in your written proposal.</p></>}

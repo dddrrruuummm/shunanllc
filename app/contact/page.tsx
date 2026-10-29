@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+import { PageIntro, Arrow } from "@/components/ui";
+import { BriefForm } from "@/components/brief-form";
+import { company } from "@/lib/site";
+export const metadata:Metadata={title:"Contact & Plan Your Journey",description:"Contact SHUN AN LLC at contact@shunanllc.com. Registered office: 5875 Silver Oaks Dr, Chino, CA 91710. Prepare a transfer, rental or event fleet inquiry.",alternates:{canonical:"/contact/"}};
+export default function Contact(){return <><PageIntro title="A private conversation." text="Private travel, a special occasion or a family farewell. Share the arrangements you have in mind, and let’s consider the journey together."/><section className="wrap contact-layout"><aside className="contact-info"><h2>A direct conversation.</h2><dl><dt>Email</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd><dt>Phone</dt><dd>{company.phone}<small>Temporary placeholder number.<br/>Please use email for inquiries.</small></dd><dt>Registered office</dt><dd>{company.name}<br/>{company.address}<br/>{company.city}</dd><dt>Website</dt><dd>shunanllc.com</dd></dl><a href={company.maps} className="text-link" target="_blank" rel="noreferrer">View registered address on Maps<Arrow diagonal/></a></aside><BriefForm/></section></>}
